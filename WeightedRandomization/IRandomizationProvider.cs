@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace WeightedRandomization
+{
+    public interface IRandomizationProvider
+    {
+        /// <summary>
+        /// Return a random double between 0 and 1.0
+        /// </summary>
+        /// <returns></returns>
+        double NextRandomValue(); 
+    }
+}
