@@ -112,6 +112,21 @@ namespace UnitTests
 
             foreach (var item in counts.OrderBy(x => x.Key))
                 Debug.WriteLine(string.Format("{0}: {1}", item.Key, item.Value)); 
-        }        
+        }
+
+        [TestMethod]
+        public void ZeroPercentChance()
+        {
+            WeightedRandomizer<int> randInt = new WeightedRandomizer<int>();
+            randInt.AddOrUpdateWeight(0, 0);
+            randInt.AddOrUpdateWeight(1, 0);
+            randInt.AddOrUpdateWeight(2, 1);
+
+            for (int i = 0; i < 20; i++)
+            {
+                if (randInt.GetNext() != 2)
+                    Assert.Fail("non 2 value found."); 
+            }            
+        }
     }
 }

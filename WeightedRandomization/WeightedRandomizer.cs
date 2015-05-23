@@ -20,9 +20,8 @@ namespace WeightedRandomization
 
         public void AddOrUpdateWeight(T value, float weight)
         {
-            if (weight == 0)
-                throw new ArgumentException("weighted value cannot have a 0% chance.");
-
+            if (weight < 0)
+                throw new ArgumentException("weighted value cannot have a negative.");
 
             WeightedChance<T> existing = this.weights.FirstOrDefault(x => Object.Equals(x.Value, value));
             if (existing == null)
